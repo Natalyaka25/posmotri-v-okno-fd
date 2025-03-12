@@ -9,6 +9,8 @@ html {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -48,4 +50,38 @@ ol {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
+}
+
+.content {
+  display: grid;
+  grid-template-areas: "result content__details";  
+  width: 1140px; 
+  padding: 133px 30px;
+  gap:30px
+}
+
+.result {
+  grid-area: result;   
+  width: 711px; 
+}
+
+.result__video-container {  
+ 
+}
+
+.search-form {
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-start;
+  padding-top: 16px;  
+}
+
+.content__details {
+  grid-area: content__details ;
+}
+
+.result__video {
+width: 100%;
+padding-top: 78px;
+object-fit: contain;
 }
