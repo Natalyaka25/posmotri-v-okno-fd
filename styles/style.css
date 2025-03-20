@@ -59,7 +59,6 @@ ol {
   grid-template-areas: "result content__details";
   gap:30px;
   width: 1140px;
- 
 }
 
 /*Расположение основного видео и блока меню*/
@@ -109,6 +108,7 @@ ol {
 }
 
 /*Настройка чек бокс*/
+
 .search-form__checkbox-list {
   display: inline;
 }
@@ -149,7 +149,7 @@ ol {
 
 .search-form__checkbox:checked +span::after {
   visibility: visible;
-} 
+ } 
 
 /*Настройка кнопки*/
 
@@ -308,7 +308,7 @@ ol {
   text-underline-offset: 1px; 
 }
 
-.search-form__label:hover .search-form__label-text,
+.search-form__label:hover span,
 .button:hover {
   text-decoration: underline;
   cursor: pointer;
