@@ -11,6 +11,7 @@ html {
 .page {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -58,7 +59,7 @@ ol {
   grid-template-areas: "result content__details";
   gap:30px;
   width: 1140px;
-  margin:133px 30px;
+ 
 }
 
 /*Расположение основного видео и блока меню*/
@@ -108,9 +109,8 @@ ol {
 }
 
 /*Настройка чек бокс*/
-
 .search-form__checkbox-list {
-  display: inline-block;
+  display: inline;
 }
 
 .visually-hidden {
@@ -123,27 +123,33 @@ ol {
   white-space: nowrap;
 } 
 
-.search-form__label:not(:last-child) {
-  margin-right: 10px;
-}
-
-.search-form__label .search-form__pseudo-checkbox {
+.search-form__pseudo-checkbox {
   display: inline-block;
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
-  vertical-align: middle;
-  background-color: transparent;
+  border: 1px solid #fff; 
+  padding: 1px;
   vertical-align: text-top;
+  background-color: transparent;
 }
 
-.search-form__checkbox:checked + span {
-  border: 1px solid #1b1919;
-  outline: 1px solid  #fff;
-  background-color: #fff;
+.search-form__label:not(:last-child) {
+  margin-right: 4.8%;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: "";
+  position: relative;
+  visibility: hidden;
+  display:block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;  
 } 
 
-
+.search-form__checkbox:checked +span::after {
+  visibility: visible;
+} 
 
 /*Настройка кнопки*/
 
@@ -165,19 +171,19 @@ ol {
 /***********************************Секция с видео****************************************/
 .content__details {
   grid-area: content__details;
-  padding-top: 1.5px;
   width: 399px;
   height: 100%;
+  padding-top: 1.5px;
 }
 
 .title {
-  font-family: 'Oswald', sans-serif;
   padding-bottom: 22px;
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 75px;
-  line-height: 94%;
-  text-transform: uppercase; 
+  line-height: 94%; 
   text-align: start;
+  text-transform: uppercase;
 }
 
 .content__accent {
@@ -194,12 +200,13 @@ ol {
 
 .result__video-container {
   position: relative;
-  width: 711px;
-  height: 386px;
+  padding-bottom:54.29%;
 }
 
 .result__video {
-  width:100%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
   object-fit:cover;
 }
@@ -216,7 +223,13 @@ ol {
 .more-button {
   width: fill;
   width: -webkit-fill-available; 
-  margin: 0px 3px;
+  margin: 0px 3px 3px;
+}
+
+.content__card-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
 }
 
 .content__video-card {
@@ -238,34 +251,28 @@ ol {
  }
 
  .content__video-card-title {
-  font-family: "Oswald", sans-serif;
   margin-top: 2.5px;
-  line-height: 94%;
-  font-weight: 700;
-  font-size: 30px;
   padding-bottom: 5px;
   overflow: hidden;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 94%;
   text-transform: uppercase;
   text-overflow: ellipsis;
  }
 
 .content__video-card-description {
+  display:  -webkit-inline-box;
+  overflow: hidden;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 16.2px;
-  overflow: hidden;
-  display:  -webkit-inline-box;
+  text-overflow: ellipsis;
   -webkit-line-clamp: 4; /* Число отображаемых строк */
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
  }
-
-.content__card-link {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-}
  
 /*Стилизация состояний*/
 
@@ -291,14 +298,14 @@ ol {
 
 .content__card-link:hover .content__video-card-title{
   text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px; 
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px; 
 }
 
 .content__card-link:hover .content__video-card-description {
   text-decoration: underline;
-  text-underline-offset: 1px;
-  text-decoration-thickness: 1px; 
+  text-decoration-thickness: 1px;
+  text-underline-offset: 1px; 
 }
 
 .search-form__label:hover .search-form__label-text,
@@ -314,6 +321,7 @@ ol {
 
 .search-form__pseudo-checkbox:active,
 .button:active,
-.content__card-link_current {
+.content__card-link_current,
+.content__card-link:active {
   background-color: #545050;
 }
