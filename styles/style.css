@@ -58,7 +58,6 @@ ol {
   display: grid;
   grid-template-areas: "result content__details";
   gap:30px;
-  justify-items: stretch;
   justify-content: center;
 }
 
